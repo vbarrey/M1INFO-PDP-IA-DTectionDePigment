@@ -1,0 +1,93 @@
+:root {
+    --color-action: rgb(27, 116, 250);
+    --color-action-dark: rgb(15, 74, 163);
+    --clear-grey: rgb(126, 126, 126);
+    --mid-grey: #333533;
+    --dark-grey: #202020;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+body {
+    margin: 0;
+    background-color: #202020;
+}
+
+.btn {
+    margin-left: 5px;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: var(--color-action);
+    border: 1px solid transparent;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+    background-color: var(--mid-grey);
+    color: var(--dark-grey);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: calc(100% - 150px);
+}
+
+h3.logo {
+    width: 150px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: #333533;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 3;
+}
+
+.navlink {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    cursor: pointer;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: #202020;
+    transition: color 0.2s;
+}
+
+.navlink:hover:not(.active) {
+    background-color: var(--color-action);
+    transition: background-color 0.2s;
+}
+
+.active {
+    background-color: var(--color-action);
+}

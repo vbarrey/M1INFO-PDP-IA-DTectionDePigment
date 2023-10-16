@@ -1,0 +1,128 @@
+#top-Home {
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgList {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: #333533;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+#logo-shapes {
+    float: left;
+    width: 55px;
+    height: 110px;
+    margin-right: 50px;
+    position: relative;
+    top: 36px;
+}
+
+.shape {
+    width: 55px;
+    height: 100px;
+    background-color: var(--color-action);
+    opacity: 0.7;
+    border-radius: 27px;
+    position: absolute;
+}
+
+#s1 {
+    transform: rotate(45deg) translate(22px);
+}
+
+#s2 {
+    transform: rotate(-45deg) translate(-22px);
+}
+
+#top-Home h1 {
+    font-size: 10em;
+    margin-bottom: 0.1em;
+    margin-top: 25px;
+    width: max-content;
+}
+
+#top-Home h2 {
+    border: solid white;
+    width: max-content;
+    padding: 0.5em 0.75em;
+    border-radius: 20px;
+    margin: auto;
+}
+
+div#image {
+    margin-top: 20px;
+    padding: 20px;
+    width: calc(100% - 40px);
+}
+
+div#image img {
+    max-width: 100%;
+    max-height: 80vh;
+}
+
+.labelButton {
+    margin-left: 5px;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #333533;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+}
+
+.labelButton:hover {
+    background-color: var(--color-action);
+    transition: background-color 0.2s;
+    color: #212529;
+}
+
+li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.inLink:hover {
+    color: var(--color-action);
+}
+
+.imgGrid {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gridElement {
+    width: 100%;
+    visibility: auto;
+}
+
+.gridElement img {
+    width: 100%;
+    image-resolution: 30dpi;
+}
+
+.gridElement a {
+    margin-top: 7px;
+}
+
+#imgToLabel {
+    margin-bottom: 50px;
+}

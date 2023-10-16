@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titre %}Uploader{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/uploader.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div id="top-Home">
+    <h1>Upload images</h1>
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <input type="file" name="images" multiple>
+        <br>
+        <button class="btn" type="submit" style="margin-top: 20px"> Upload Image(s) </button>
+    </form>
+    {% if imgUploaded %}
+        <br>
+        <P> images uploadées : </P>
+        <ul>
+        {% for img in imgUploaded %}
+            <li> {{ img }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% if imgNotUploaded %}
+        <br>
+        <P> ces images sont déjà présentes sur le serveur : </P>
+        <ul>
+        {% for img in imgNotUploaded %}
+            <li> {{ img }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+{% endblock %}

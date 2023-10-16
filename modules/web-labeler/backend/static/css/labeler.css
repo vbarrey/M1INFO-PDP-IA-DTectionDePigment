@@ -1,0 +1,66 @@
+#labeler{
+    display: flex;
+    flex-direction: row;
+}
+
+#allImgView {
+    padding-right: calc(25% + 10px);
+}
+
+#allImgView img {
+    position: absolute;
+    width: 6192px;
+    height: 4128px;
+}
+
+#allImgView canvas {
+    position: relative;
+    width: 6192px;
+    height: 4128px;
+    z-index: 2;
+}
+
+#selectedAreaView{
+    position: fixed;
+    width: calc(25% + 10px);
+    background-color: var(--mid-grey);
+    z-index: 3;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+#selectedAreaView h2{
+    margin-top: 46px;
+}
+
+#pixels_selector {
+    width: calc(100% - 26px);
+    padding: 5px;
+    margin: 46px 5px 0px 5px;
+    border: solid grey 3px;
+}
+
+#grid p {
+    margin: auto;
+}
+
+#pixels_selector canvas {
+    width: 100%;
+}
+
+#pixels_selector #grid {
+    position: absolute;
+    display: grid;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#buttons button {
+    height: 30px;
+}

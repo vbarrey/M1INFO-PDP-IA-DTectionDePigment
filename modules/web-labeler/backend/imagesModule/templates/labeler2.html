@@ -1,0 +1,91 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block titre %}
+     Labeler 
+{% endblock titre %}
+
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/labeler2.css' %}">
+    <script src="{% static 'js/labeler.js' %}"></script>
+{% endblock links %}
+
+{% block content %}
+<div id="labeler">
+    <div id="allImgView">
+        {% if image %}
+            <canvas id="canva_allImg" width="{{ image.img.width }}" height="{{ image.img.height }}" ></canvas>
+            <canvas id="canva_drawing" width="{{ image.img.width }}" height="{{ image.img.height }}" onmousedown="canvaDrawing_mouseDown(event)" onmousemove="canvaDrawing_mouseMove(event)" onmouseup="canvaDrawing_mouseUp(event)"></canvas>
+        {% else %}
+        <p> Aucune image à étiqueter, vous pouvez en telecharger depuis votre pc dans la section <a href="/upload" class="inLink">Upload</a>.</p>
+        {% endif %}
+
+    </div>
+</div>
+<div id="sideBar">
+    <h2>Filtre HSV</h2>
+    <div class="img-column">
+        <div class="row"> 
+            <label for="colorSelectorInput">Couleur :</label>
+            <input id="colorSelectorInput" type="color" value="#0307fc" onchange="colorInput_onChange(this)"/>
+        </div>
+        <div class="row">
+            <label for>Intervale :</label>
+            <input id="intervalSelectorInupt" type="number" min="5" max="180" value="20" onchange="intervalSelectorInupt_onChange(this)">
+        </div>
+        <div id="rowButtons" class="row">
+            <div class="buttons" id="actionBtn">
+                <button class="btn" id="filterBtn" onclick="filter_click(this)">Activer</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Selection de pixels</h2>
+    <div id="pixels_selector">
+        <div id="grid">
+            <p>Selectionner une zone sur l'image</p>
+        </div>
+        <canvas id="canva_selectedImg"></canvas>
+    </div>
+    <div id="selectedImg_buttons" class="buttons">
+        <button class="btn activeBtn" id="draw_button" onclick="draw_button_click()" disabled>
+        Dessiner
+      </button>
+        <button class="btn" id="delete_button" onclick="delete_button_click(event)" disabled>
+        Effacer
+      </button>
+    </div>
+    <div id="selectedImg_okbuttons">
+        <button class="btn ok_btn" id="areaOK_button" onclick="areaOK_click(event)" disabled>
+        Valider Selection
+      </button>
+        <button class="btn ok_btn" id="wholeImgOK_button" onclick="wholeImgOk_click(event)">
+        Valider Image
+      </button>
+    </div>
+
+
+
+    <div id="hiddenPost" hidden>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" accept="application/JSON" name="jsonFile" id="jsonFile">
+            <input type="checkbox" name="workingStatus" id="workingStatus">
+            <button type="submit" id="jsonButton"></button>
+        </form>
+    </div>
+</div>
+
+<script>
+    var imageID = {{image.id}};
+    var imageName = '{{image.title}}';
+    var imageUrl = '{{image.img.url}}';
+    {% if image.json %}
+        var jsonUrl = '{{image.json.url}}';
+    {% else %}
+        var jsonUrl = '';
+    {% endif %}
+</script>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block links %}{% endblock %}
+</head>
+    <body>
+        <nav id="navbar">
+            <h3 class="logo"> Lorem </h3>
+            <ul>
+                <a href="/" class="navlink" active-class="active" exact-active-class="active">Accueil</a>
+                <a href="/labeler" class="navlink" active-class="active" exact-active-class="active">Labeler</a>
+                <a href="/upload" class="navlink" active-class="active" exact-active-class="active">Upload</a>
+            </ul>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
+</html>

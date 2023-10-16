@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titre%} Accueil {% endblock %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/accueil.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="top-Home">
+    <h1>
+        <div id="logo-shapes">
+        <div class="shape" id="s1"></div>
+        <div class="shape" id="s2"></div>
+        </div>Lorem
+    </h1>
+    <h2>ONLINE PIXEL LABELER</h2>
+</div>
+{% if  toLabel or inProgress %}
+    {% if inProgress %}
+        <div id="imgInProgress" class="imgList">
+            <h3> Images en cours d'étiquetage :</h3>
+            <div class="imgGrid">
+                {% for image in inProgress %}
+                <div class="gridElement">
+                    <img src="media/images/{{image.title}}" loading="lazy" decoding="async"/>
+                    <label>{{ image.title }}</label>
+                    <a href="/labeler/{{image.id}}" class="btn">Continuer</a>  
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    {% if toLabel %}
+        <div id="imgToLabel" class="imgList">
+            <h3> Images restantes à étiqueter :</h3>
+            <div class="imgGrid">
+                {% for image in toLabel %}
+                <div class="gridElement">
+                    <img src="media/images/{{image.title}}" loading="lazy" decoding="async"/>
+                    <label>{{ image.title }}</label>
+                    <a href="/labeler/{{image.id}}" class="btn">Étiqueter</a>                    
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% else %}
+    <p> Aucune image à étiqueter, vous pouvez en telecharger depuis votre pc dans la section <a href="/upload" class="inLink">Upload</a>.
+{% endif %}
+
+{% endblock %}

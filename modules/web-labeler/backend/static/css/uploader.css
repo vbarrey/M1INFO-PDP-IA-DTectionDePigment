@@ -1,0 +1,17 @@
+#top-Home {
+width: 50%;
+margin: auto;
+margin-top: 150px;
+display: flex;
+justify-content: center;
+align-content: center;
+flex-direction: column;
+align-items: center;
+}
+
+#formDiv {
+background-color: #202020;
+color: white;
+padding-left: 15px;
+padding-right: 15px;
+}

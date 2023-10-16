@@ -1,0 +1,4 @@
+# Python cache
+backend/__pycache__
+imagesModule/__pycache__
+imagesModule/migrations/__pycache__
